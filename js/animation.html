@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ttt{
+            width: 200px;
+            height: 200px;
+            background:rgb(99, 97, 96);
+        }
+    </style>
+</head>
+<body>
+    <div id="ttt"></div>
+    <script>
+        var a = 0;
+        setInterval(anime,50);
+    
+        function anime(){
+            a = a + 1;
+
+            if(a === 20){
+                clearInterval(id);
+            }
+            else{
+                var target = document.getElementById("ttt");
+            target.style.marginLeft = a + 'px';
+            }
+          
+        }
+    </script>
+</body>
+</html>

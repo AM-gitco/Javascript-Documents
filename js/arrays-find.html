@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          var ages = [10 , 13, 16 , 18 , 20];
+        document.write(ages + "<br><br>");
+
+        //array some function
+        var b = ages.filter(checkAdult);
+        document.write(b + "<br><br>");
+
+        function checkAdult(age){
+            return age >= 16
+        }
+
+    </script>
+</body>
+</html>

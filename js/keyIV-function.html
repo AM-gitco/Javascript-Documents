@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #box{
+            background-color: lightgoldenrodyellow;
+            width: 400px;
+            height: 200px;
+            padding: 15px;
+            font-size: 50px;
+            font-weight: bolder   ;
+            border: 1px solid violet;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var target = document.querySelector('#box');
+
+        window.addEventListener('offline', function() {
+            target.innerHTML = "Please check your connection..\n\n And try again please!!";
+            target.style.backgroundColor =  "pink";
+        });
+
+        window.addEventListener('online', function() {
+            target.innerHTML = "Reconnecting.....\n Yourback online";
+            target.style.backgroundColor =  "blue";
+        });
+        
+        if (navigator.onLine) {
+            alert('Online');
+        } else {
+            alert("OffLine");
+        }
+    </script>
+</body>
+</html>

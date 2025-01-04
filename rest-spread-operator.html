@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum(name,...args){
+            document.write(`Ali ${name} :`);
+            let sum = 0;
+            for (const i in args) {
+               sum += args[i];
+                    
+                }
+                document.write(sum + "<br> <br>")
+            }
+            //rest oerators
+            sum("Akram",20,30,40,50,70);
+            //spread operators
+            var arr =[20,30,40,50,70,80,90];
+            sum("hassan", ...arr);
+    </script>
+</body>
+</html>

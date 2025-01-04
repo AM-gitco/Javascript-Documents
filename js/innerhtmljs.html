@@ -1,0 +1,46 @@
+//set attributes(for add attribute we dont change attribute)
+ <!DOCTYPE html>
+ <html>
+ <body>
+   <a id="myLink" href="https://example.com">Go to Example</a>
+   <button onclick="changeHref()">Change Link</button>
+ 
+   <script>
+     function changeHref() {
+       document.getElementById("myLink").setAttribute("target","_self");
+      
+     }
+   </script>
+ </body>
+ </html>
+ //create element 
+ <!DOCTYPE html>
+ <html>
+ <body>
+ 
+ <h2>JavaScript can Change HTML</h2>
+ <div id="green" >
+ <p id="p1">Hello World!</p></div>
+ 
+ <script>
+ let div=document.getElementById("green");
+ let bro=document.createElement("button");
+ bro.style.border="4px solid green";
+ bro.textContent="pak";
+ div.appendChild(bro);
+</script>
+ 
+ <p>The paragraph above was changed by a script.</p>
+ //innerhtml
+ <h2>JavaScript can Change HTML</h2>
+
+<p id="p1">Hello World!</p>
+
+<script>
+document.getElementById("p1").innerHTML = "New text!";
+</script>
+
+<p>The paragraph above was changed by a script.</p>
+  
+ </body>
+ </html>

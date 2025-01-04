@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>youtube</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0%;
+            margin: 0%;
+            text-decoration: none;
+        }
+
+        .menu {
+            position: absolute;
+            border: none;
+            background-color: transparent;
+            left: 1.5%;
+            top: 2%;
+        }
+
+        .menu :hover {
+            position: absolute;
+            left: 1%;
+            top: 1.5%;
+            border: transparent;
+            border-radius: 50%;
+            background-color: whitesmoke;
+        }
+
+        img.youtube {
+            position: absolute;
+            width: 80px;
+            left: 4.5%;
+            top: 2%;
+        }
+
+        .input {
+            position: absolute;
+            left: 395px;
+            top: 8px;
+            width: 420px;
+            height: 31px;
+            border-radius: 25px 1px 1px 25px;
+            border: 1px solid grey;
+            padding: 10px;
+            padding-left: 30px;
+            opacity: 70%;
+            font-size: 15px;
+
+        }
+
+        .search {
+            position: absolute;
+            left: 61.8%;
+            top: 8px;
+            border-width: 1px;
+            height: 31px;
+            width: 64px;
+            padding-top: 5px;
+            border-radius: 1px 25px 25px 1px;
+            border: 1px solid gray;
+            opacity: 80%;
+        }
+
+        .search:hover {
+            background-color: darkgrey;
+        }
+
+        .voice {
+            position: absolute;
+            border: transparent;
+            left: 890px;
+            top: 9px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 10px;
+
+        }
+
+        .voice:hover {
+            background-color: whitesmoke;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 10px;
+        }
+
+        .videocall {
+            position: absolute;
+            right: 150px;
+            top: 13px;
+            border: transparent;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: transparent;
+        }
+
+        .videocall:hover {
+            background-color: whitesmoke;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .bell {
+            position: fixed;
+            right: 100px;
+            top: 15px;
+            border: transparent;
+            background-color: transparent;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .bell:hover {
+            background-color: whitesmoke;
+
+        }
+
+        .all {
+            position: absolute;
+            background-color: black;
+            color: white;
+            top: 69px;
+            left: 265px;
+            width: 37px;
+            height: 32px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .all:hover {
+            background-color: black;
+        }
+
+        .all:active {
+            background-color: rgb(180, 29, 29);
+            color: white;
+        }
+
+        .music {
+            position: absolute;
+            top: 69px;
+            left: 385px;
+            width: 60px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .music:hover {
+            background-color: darkgray;
+        }
+
+        .music:active {
+            background-color: black;
+            color: white;
+        }
+
+        .news {
+            position: absolute;
+            top: 69px;
+            left: 315px;
+            width: 60px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .news:hover {
+            background-color: darkgrey;
+        }
+
+        .news:active {
+            background-color: black;
+            color: white;
+        }
+
+        .harvest {
+            position: absolute;
+            top: 69px;
+            left: 455px;
+            width: 60px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .harvest:hover {
+            background-color: darkgrey;
+        }
+
+        .harvest:active {
+            background-color: black;
+            color: white;
+        }
+
+        .live {
+            position: absolute;
+            top: 69px;
+            left: 527px;
+            width: 50px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .live:hover {
+            background: darkgray;
+        }
+
+        .live:active {
+            background-color: black;
+            color: white;
+        }
+
+        .pakistani-daramas {
+            position: absolute;
+            top: 69px;
+            left: 590px;
+            width: 130px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .pakistani-daramas:hover {
+            background-color: darkgrey;
+        }
+
+        .pakistani-daramas:active {
+            background-color: black;
+            color: white;
+        }
+
+        .kebabs {
+            position: absolute;
+            top: 69px;
+            left: 730px;
+            width: 60px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .kebabs:hover {
+            background-color: darkgrey
+        }
+
+        .kebabs:active {
+            background-color: black;
+            color: white;
+        }
+
+        .birds {
+            position: absolute;
+            top: 69px;
+            left: 800px;
+            width: 50px;
+            border-radius: 6px;
+            height: 32px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .birds:hover {
+            background-color: darkgrey;
+        }
+
+        .birds:active {
+            background-color: black;
+            color: white;
+        }
+
+        .roasting {
+            position: absolute;
+            top: 69px;
+            left: 860px;
+            width: 65px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .roasting:hover {
+            background-color: darkgrey;
+        }
+
+        .roasting:active {
+            background-color: black;
+            color: white;
+        }
+
+        .th {
+            position: absolute;
+            top: 69px;
+            left: 930px;
+            width: 70px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .th:hover {
+            background-color: darkgray;
+        }
+
+        .th:active {
+            background-color: black;
+            color: white;
+        }
+
+        .wilderness {
+            position: absolute;
+            top: 69px;
+            left: 1010px;
+            width: 70px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .wilderness:hover {
+            background-color: darkgrey;
+        }
+
+        .wilderness:active {
+            background-color: black;
+            color: black;
+        }
+
+        .c6 {
+            position: absolute;
+            top: 69px;
+            left: 1100px;
+            width: 100px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .c6:hover {
+            background-color: darkgray;
+        }
+
+        .c6:active {
+            background-color: black;
+            color: white;
+        }
+
+        .cl {
+            position: absolute;
+            top: 69px;
+            left: 1230px;
+            width: 50px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .cl:hover {
+            background-color: darkgray;
+        }
+
+        .cl:active {
+            background-color: black;
+            color: white;
+        }
+
+        .si {
+            position: absolute;
+            overflow-y: scroll;
+            width: 17%;
+            height: 89%;
+            top: 65px;
+        }
+
+        .si li a {
+            color: black
+        }
+
+        #icon {
+            margin-right: 20px;
+            text-align: center;
+            position: relative;
+            top: 5px;
+        }
+
+        .si li {
+            font-size: 15px;
+            font-weight: 3px;
+            padding-left: 30px;
+        }
+
+        .si ul {
+            line-height: 40px;
+            font-family: Roboto, Arial, sans-serif;
+        }
+
+        .si li:hover {
+            background-color: whitesmoke;
+        }
+
+        .sc-vid {
+            overflow-y: scroll;
+            width: 83%;
+            height: 86%;
+            position: absolute;
+            top: 88px;
+            right: 1px;
+        }
+
+        .llc {
+            position: relative;
+            top: 25px;
+            opacity: 50%;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <button class="menu">
+            <span class="material-symbols-outlined">
+                menu</span>
+        </button>
+        <img src="image_2024_01_22T06_44_34_846Z.png" class="youtube">
+
+        <input placeholder="Search" class="input">
+        <button class="search"><span class="material-symbols-outlined">
+                search
+            </span></button>
+        <button class="voice"><span class="material-symbols-outlined">
+                keyboard_voice
+            </span></button>
+        <button class="videocall"><span class="material-symbols-outlined">
+                video_call
+            </span></button>
+        <button class="bell"><span class="material-symbols-outlined">
+                notifications
+            </span></button>
+        <span style="position: absolute;left: 95%;top: 2.40%;" class="material-symbols-outlined">
+            account_circle
+        </span>
+
+
+    </nav>
+
+    <head>
+        <button class="all">All</button>
+        <button class="music">Music</button>
+        <button class="news">News</button>
+        <button class="harvest">Harvest</button>
+        <button class="live">Live</button>
+        <button class="pakistani-daramas">pakistni daramas</button>
+        <button class="kebabs">Kebabs</button>
+        <button class="birds">Birds</button>
+        <button class="roasting">Roasting</button>
+        <button class="th">Thrillers</button>
+        <button class="wilderness">wilderness</button>
+        <button class="c6">chak 67</button>
+        <button class="cl">Class</button>
+
+
+    </head>
+    <div class="si">
+        <ul>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        home
+                    </span>Home</a></li>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        bolt
+                    </span>Shorts</a></li>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        subscriptions
+                    </span>subscriptions</a></li>
+            <hr style="opacity: 50%">
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        video_library
+                    </span>Lidrary</a></li>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        history
+                    </span>history</a></li>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        smart_display
+                    </span>Your video</a></li>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        schedule
+                    </span>Watch Later</a></li>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        thumb_up
+                    </span>Like</a></li>
+            <hr style="opacity: 50%">
+            <h4 style="margin-left: 30px;margin-top:10px;font-family: Roboto,Arial,sans-serif;font-weight:200;">Explore
+            </h4>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        local_fire_department
+                    </span></a>Trending</li>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        music_note
+                    </span>Music</a></li>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        sports_esports
+                    </span>Gaming</a></li>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        feed
+                    </span>News</a></li>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        trophy
+                    </span>Sport</a></li>
+            <hr style="opacity: 40%;">
+            <h4 style="padding-left: 15px;font-weight: 200;">More from YouTube</h4>
+            <li><a href="#"><img src="image_2024_01_22T06_44_34_858Z.png " id="icon" style="width: 25px;">YouTube
+                    premium</a></li>
+            <li><a href="#"><img src="image_2024_01_22T06_44_34_859Z.png" id="icon" style="width:30px"></a>YouTube
+                studio</li>
+            <li><a href="#"><img src="image_2024_01_22T06_44_34_865Z.png" id="icon" style="width:25px">YouTube Music</a>
+            </li>
+            <li><a href="#"><img src="image_2024_01_22T06_44_34_861Z.png" id="icon" style="width: 25px;">YouTube
+                    kids</a></li>
+            <hr style="opacity: 50%;">
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        settings
+                    </span>Setting</a></li>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        flag
+                    </span>Report history</a></li>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        help
+                    </span>Help</a></li>
+            <li><a href="#"><span class="material-symbols-outlined" id="icon">
+                        chat_bubble
+                    </span>Send Feedback</a></li>
+            <hr style="opacity: 50%;">
+            <p
+                style="font-family: Arial, Helvetica, sans-serif ;line-height: 20px;font-size: 13px;position: relative;top: 12px;padding-left: 30px;">
+                About Press Copyright Contact us Creater Advertise Developers <br><br>
+                Terms Privacy Policy & SafetyHow YouTube worksTest new features</p>
+            <p class="llc"> &#169 2023 Google LLC</p>
+    </div>
+    <div class="sc-vid">
+        <video style=" position:absolute;width:300px ;height:150px;left:25px;top:40px;border-radius: 13px;" controls>
+            <source src="mov_bbb.mp4" type="video/mp4">
+        </video><img src="ARY_Digital_Logo_2.png"
+            style="position: absolute;width: 35px;border-radius: 50%;top:238px;left:25px">
+        <p style="position: absolute;top:240px;left: 70px;font-family:Arial,  sans-serif;font-size:15px ; ">mein pchly
+            hafty
+            gali sy guzar raha tha meny <br>shizad ore mohsin ko dekha jo k gali...
+        </p>
+        <video style=" position:absolute;width:300px ;height:150px;left:390px;top:40px;border-radius: 13px;" controls>
+            <source src="mov_bbb.mp4" type="video/mp4">
+        </video><img src="ARY_Digital_Logo_2.png"
+            style="position: absolute;width: 40px;border-radius: 50%;top:238px;left: 390px;">
+        <p style="position: absolute;top:235px;left: 430px;font-family:Arial,  sans-serif;font-size:15px ;">jb in k
+            kareeb poncha tu inho ny video(1)<br> banani shoro kr di to mein in ko dekhny laga...</p>
+        <video style=" position:absolute;width:300px ;height:150px;left:755px;top:40px;border-radius: 13px;" controls>
+            <source src="mov_bbb.mp4" type="video/mp4">
+        </video><img src="ARY_Digital_Logo_2.png"
+            style="position: absolute;width: 35px;border-radius: 50%;top:238px;left:750px">
+        <p style="position: absolute;top:235px;left: 800px;font-family:Arial,  sans-serif;font-size:15px;">1- jo kuch
+            youn thi mohsin bhai mohsin bhai rukein kia hal ha mohsin bhai g thek acha to nazreen bahot ...</p>
+        <video style=" position:absolute;width:300px ;height:150px;left:25px;top:330px;border-radius: 13px;" controls>
+            <source src="mov_bbb.mp4" type="video/mp4">
+        </video><img src="global-searching-icon-white-background (1).jpg"
+            style="position: absolute;width: 40px;border-radius: 50%;top:505px;left:20px">
+        <p style="position: absolute;top:500px;left: 60px;font-family:Arial,  sans-serif;font-size:15px ; ">mein pchly
+            hafty gali sy guzar raha tha meny <br>shizad ore mohsin ko dekha jo k gali mein <br> kharyaapis mein phosal
+            phusal kr rahy thy...
+        </p>
+        <video style=" position:absolute;width:300px ;height:150px;left:390px;top:330px;border-radius: 13px;" controls>
+            <source src="mov_bbb.mp4" type="video/mp4">
+        </video><img src="global-searching-icon-white-background (1).jpg"
+            style="position: absolute;width: 40px;border-radius: 50%;top:505px;left: 380px;">
+        <p style="position: absolute;top:500px;left: 430px;font-family:Arial,  sans-serif;font-size:15px ;">jb in k
+            kareeb poncha tu inho ny video(1)<br> banani shoro kr di to mein in ko dekhny laga. </p>
+        <video style=" position:absolute;width:300px ;height:150px;left:755px;top:330px;border-radius: 13px;" controls>
+            <source src="mov_bbb.mp4" type="video/mp4">
+        </video><img src="global-searching-icon-white-background (1).jpg"
+            style="position: absolute;width: 40px;border-radius: 50%;top:505px;left: 750px;">
+        <p style="position: absolute;top:500px;left: 790px;font-family:Arial,  sans-serif;font-size:15px ;">jb in k
+            kareeb poncha tu inho ny video(1)<br> banani shoro kr di to mein in ko dekhny laga. </p>
+
+        <video style=" position:absolute;width:300px ;height:150px;left:25px;top:40px;border-radius: 13px;" controls>
+            <source src="mov_bbb.mp4" type="video/mp4">
+        </video><img src="ARY_Digital_Logo_2.png"
+            style="position: absolute;width: 35px;border-radius: 50%;top:238px;left:25px">
+        <p style="position: absolute;top:240px;left: 70px;font-family:Arial,  sans-serif;font-size:15px ; ">mein pchly
+            hafty
+            gali sy guzar raha tha meny <br>shizad ore mohsin ko dekha jo k gali...
+        </p>
+        <video style=" position:absolute;width:300px ;height:150px;left:390px;top:40px;border-radius: 13px;" controls>
+            <source src="mov_bbb.mp4" type="video/mp4">
+        </video><img src="ARY_Digital_Logo_2.png"
+            style="position: absolute;width: 40px;border-radius: 50%;top:238px;left: 390px;">
+        <p style="position: absolute;top:235px;left: 430px;font-family:Arial,  sans-serif;font-size:15px ;">jb in k
+            kareeb poncha tu inho ny video(1)<br> banani shoro kr di to mein in ko dekhny laga...</p>
+        <video style=" position:absolute;width:300px ;height:150px;left:755px;top:40px;border-radius: 13px;" controls>
+            <source src="mov_bbb.mp4" type="video/mp4">
+        </video><img src="ARY_Digital_Logo_2.png"
+            style="position: absolute;width: 35px;border-radius: 50%;top:238px;left:750px">
+        <p style="position: absolute;top:235px;left: 800px;font-family:Arial,  sans-serif;font-size:15px;">1- jo kuch
+            youn thi mohsin bhai mohsin bhai rukein kia hal ha mohsin bhai g thek acha to nazreen bahot ...</p>
+        <video style=" position:absolute;width:300px ;height:150px;left:25px;top:330px;border-radius: 13px;" controls>
+            <source src="mov_bbb.mp4" type="video/mp4">
+        </video><img src="global-searching-icon-white-background (1).jpg"
+            style="position: absolute;width: 40px;border-radius: 50%;top:505px;left:20px">
+        <p style="position: absolute;top:500px;left: 60px;font-family:Arial,  sans-serif;font-size:15px ; ">mein pchly
+            hafty gali sy guzar raha tha meny <br>shizad ore mohsin ko dekha jo k gali mein <br> kharyaapis mein phosal
+            phusal kr rahy thy...
+        </p>
+        <video style=" position:absolute;width:300px ;height:150px;left:390px;top:330px;border-radius: 13px;" controls>
+            <source src="mov_bbb.mp4" type="video/mp4">
+        </video><img src="global-searching-icon-white-background (1).jpg"
+            style="position: absolute;width: 40px;border-radius: 50%;top:505px;left: 380px;">
+        <p style="position: absolute;top:500px;left: 430px;font-family:Arial,  sans-serif;font-size:15px ;">jb in k
+            kareeb poncha tu inho ny video(1)<br> banani shoro kr di to mein in ko dekhny laga. </p>
+        <video style=" position:absolute;width:300px ;height:150px;left:755px;top:330px;border-radius: 13px;" controls>
+            <source src="mov_bbb.mp4" type="video/mp4">
+        </video><img src="global-searching-icon-white-background (1).jpg"
+            style="position: absolute;width: 40px;border-radius: 50%;top:505px;left: 750px;">
+        <p style="position: absolute;top:500px;left: 790px;font-family:Arial,  sans-serif;font-size:15px ;">jb in k
+            kareeb poncha tu inho ny video(1)<br> banani shoro kr di to mein in ko dekhny laga. </p>
+
+    </div>
+
+</body>
+
+</html>

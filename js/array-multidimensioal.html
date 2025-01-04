@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var ary =[
+        ["Harry",18 ,"Male" , "B.Com"],
+        ["Ali Hassan",19 ,"Male" , "B.C.A"],
+        ["Sara",18 ,"FeMale" , "B.S.C"],
+        ["Mariam",19 ,"FeMale" , "B.A"]
+    ];
+    for(var a = 0; a < 4; a++){
+        for(var b = 0; b < 4; b++){
+        document.write(ary[a][b] + " ")
+        }
+        document.write("<br><br><br>")
+        }
+        //make a table array
+        var ary =[
+        ["Harry",18 ,"Male" , "B.Com"],
+        ["Ali Hassan",19 ,"Male" , "B.C.A"],
+        ["Sara",18 ,"FeMale" , "B.S.C"],
+        ["Mariam",19 ,"FeMale" , "B.A"]
+    ];
+    document.write("<table border='1px' cellspacing='0px'>");
+
+    for(var a = 0; a < 4; a++){
+        document.write("<tr>");
+        for(var b = 0; b < 4; b++){
+        document.write("<td>" + ary[a][b] + "</td> ")
+        }
+        document.write("<br><br><br>");
+        document.write("<tr>");
+        }
+
+        document.write("</table>");
+
+        //arrays length property
+        var ary =[
+        ["Harry",18 ,"Male" , "B.Com"],
+        ["Ali Hassan",19 ,"Male" , "B.C.A"],
+        ["Sara",18 ,"FeMale" , "B.S.C"],
+        ["Mariam",19 ,"FeMale" , "B.A"]
+    ];
+    document.write(ary.length + "<br>");
+    for(var a = 0; a < ary.length; a++){
+        for(var b = 0; b < ary.length; b++){
+        document.write(ary[a][b] + " ")
+        }
+        document.write("<br><br><br>")
+        }
+   
+</script>
+</body>
+</html>

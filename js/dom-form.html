@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="text"] , select{
+            width: 100%;
+            padding: 12px 8px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid rgb(201, 199, 199);
+            border-radius: 5px;
+        }
+        input[type=submit] ,button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+        input[type=submit]:hover{
+            background-color:#09ce75;
+        }
+        button:hover{
+            background-color:#09ce75;
+            
+        }
+        h2{
+            font-size: 50px;
+            font-family: "Princess Sofia", cursive;
+            text-transform: uppercase;
+            color: #009879;
+            text-shadow: 2px 2px 20px ;
+            
+        }
+        div{
+            border-radius: 5px;
+            background-color: rgb(228, 226, 226);
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>CSS Form Styling</h2>
+    <div>
+        <form action="">
+            <label for="fname" o>First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Write your First Name......." onfocus="ffunction(this)" onblur="bf(this)">
+
+            <label for="lname">First Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Now Write your Last Name Here......."  onfocus="ffunction(this)" onblur="bf(this)">
+            
+            <label for="country">Country</label>
+            <select name="country" id="country">
+                <option value="Pakistan">Pakistan</option>
+                <option value="China">China</option>
+                <option value="Australia">Australia</option>
+                <option value="UK">UK</option>
+                <option value="USA">USA</option>
+                <option value="Italy">Italy</option>
+            </select>
+            <input type="Submit" value="Submit" >
+            <button>Reset</button>
+        </form>
+    </div>
+    <script>
+        function ffunction(element){
+            element.style.background = "green";
+        }
+        function bf(element){
+            element.style.background = "";
+        }
+    </script>
+</body>
+</html>

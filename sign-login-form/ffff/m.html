@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup Form</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #003366, #0066cc);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        /* Style for tabs */
+        .tab {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            border-radius: 30px;
+            overflow: hidden;
+            background: #f2f2f2;
+        }
+
+        .tab a {
+            padding: 10px 30px;
+            text-decoration: none;
+            font-size: 16px;
+            flex: 1;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-right: none;
+            color: black;
+            background: #f2f2f2;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .tab a:last-child {
+            border-right: 1px solid #ccc;
+        }
+
+        .tab a:hover,
+        .tab a:focus {
+            background: #ddd;
+        }
+
+        /* Active tab styling using :target */
+        .tab a:target,
+        .tab a:target ~ a {
+            background: linear-gradient(to right, #003366, #0066cc);
+            color: white;
+            font-weight: bold;
+            border-radius: 30px;
+        }
+
+        .form-content {
+            /* display: none; */
+        }
+
+        /* Show login form when #login is targeted */
+        #login-form:target ~ .login-form {
+            display: block;
+        }
+
+        /* Show signup form when #signup is targeted */
+        #signup-form:target ~ .signup-form {
+            display: block;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        form button {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(to right, #003366, #0066cc);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: linear-gradient(to right, #002244, #0055bb);
+        }
+
+        .form-content .toggle-link {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .form-content .toggle-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .form-content .toggle-link a:hover {
+            text-decoration: underline;
+        }
+
+        .form-container .show-password {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .form-container .show-password input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        /* Show/Hide Password */
+        #show-password:checked ~ .login-form #login-password,
+        #show-password:checked ~ .signup-form #signup-password,
+        #show-password:checked ~ .signup-form #confirm-password {
+            -webkit-text-security: none;
+        }
+
+        #show-password:not(:checked) ~ .login-form #login-password,
+        #show-password:not(:checked) ~ .signup-form #signup-password,
+        #show-password:not(:checked) ~ .signup-form #confirm-password {
+            -webkit-text-security: circle;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="tab">
+            <a href="#login-form">Login Form</a>
+            <a href="#signup-form">Signup Form</a>
+        </div>
+
+        <div class="form-content login-form">
+            <h2 id="login-form">Login Form</h2>
+            <form>
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <div class="show-password">
+                    <input type="checkbox" id="show-password">
+                    <label for="show-password">Show Password</label>
+                </div>
+                <button type="submit">Login</button>
+                <div class="toggle-link">
+                    Not a member? <a href="#signup-form">Signup now</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-content signup-form">
+            <h2 id="signup-form">Signup Form</h2>
+            <form>
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                <button type="submit">Signup</button>
+                <div class="toggle-link">
+                    Already a member? <a href="#login-form">Login now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 300px;
+            border: 1px solid rgb(50, 44, 45);
+            background-color: pink;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var  target = document.querySelector('#box');
+        // target.addEventListener('click',function(e) {
+        //     var ctrl = e.ctrlKey;
+        //     if(ctrl){
+        //         alert('You pressed Ctrl  key');
+        //     }else{
+        //         alert('Please pressed Ctrl  key');
+        //     }
+        // });
+        target.addEventListener('click',function(e){
+            var k;
+
+            switch(true){
+                case e.metaKey:
+                    k = "Meta Key";
+                    break;
+                case e.altKey:
+                    k = "Alt Key";
+                    break;
+                case e.shiftKey:
+                    k = " Key";
+                    break;
+                case e.ctrlKey:
+                    k = "Ctrl Key";
+                    break;
+                default: 
+                    k = ("No key pressed.....\nPlese firstly pressed Any key of following :\n(Alt ,  Meta  , Ctrl , Shift)");
+            }
+            alert(k);
+        });
+    </script>
+</body>
+</html>

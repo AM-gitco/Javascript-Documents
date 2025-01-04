@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <P id="demo"></P>
+    <script>
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York",
+  respi:{
+tea:"pink",
+color:"green",
+type:{
+    car:"BMW",
+    PHONE:"MOTROLA"
+}
+  }
+};
+
+// Log all values directly
+for (let key in person) {
+  document.write(person[key]+"<br>");
+}
+const per = {
+  name: "John",
+  age: 30,
+  city: "New York",
+  respi: {
+    tea: "pink",
+    color: "green",
+    type: {
+      car: "BMW",
+      PHONE: "MOTOROLA"
+    }
+  }
+};
+
+// Function to log all values
+const Person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+// Create an Array
+const myArray = Object.values(Person);
+
+// Display the Array
+document.getElementById("demo").innerHTML = myArray;
+    </script>
+</body>
+</html>

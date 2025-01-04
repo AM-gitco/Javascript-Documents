@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup Form</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(120deg, #0033cc, #007bff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 350px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.form-box {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.button-box {
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+
+.toggle-btn {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    position: relative;
+    outline: none;
+}
+
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #0033cc, #007bff);
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+.input-group {
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: 0.5s;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px 0;
+    margin: 20px 0;
+    background: linear-gradient(to right, #0033cc, #007bff);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#login {
+    left: 50px;
+}
+
+#signup {
+    left: 450px;
+}
+
+p {
+    text-align: center;
+    color: #666;
+}
+
+p a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.check-box {
+    margin: 10px 0 10px 0;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Tab Section -->
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Login Form</button>
+                <button type="button" class="toggle-btn" onclick="signup()">Signup Form</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login" class="input-group">
+                <h2>Login Form</h2>
+                <input type="text" class="input-field" placeholder="Email Address" required>
+                <input type="password" class="input-field" placeholder="Password" required>
+                <input type="checkbox" class="check-box"><span>Show Password</span>
+                <button type="submit" class="submit-btn">Login</button>
+                <p>Not a member? <a href="#" onclick="signup()">Signup now</a></p>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signup" class="input-group">
+                <h2>Signup Form</h2>
+                <input type="text" class="input-field" placeholder="Email Address" required>
+                <input type="password" class="input-field" placeholder="Password" required>
+                <input type="password" class="input-field" placeholder="Confirm password" required>
+                <button type="submit" class="submit-btn">Signup</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+var x = document.getElementById("login");
+var y = document.getElementById("signup");
+var z = document.getElementById("btn");
+
+function signup() {
+    x.style.left = "-400px";
+    y.style.left = "50px";
+    z.style.left = "110px";
+}
+
+function login() {
+    x.style.left = "50px";
+    y.style.left = "450px";
+    z.style.left = "0px";
+}
+
+    </script>
+</body>
+</html>

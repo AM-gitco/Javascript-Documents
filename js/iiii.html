@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dot Clock with Digits</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2f3e46;
+            margin: 0;
+        }
+
+        .clock {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        .hour, .minute, .second {
+            position: absolute;
+            width: 4px;
+            height: 40%;
+            background-color: transparent;
+            transform-origin: bottom center;
+            
+            left: 50%;
+        }
+
+        .hour::before, .minute::before, .second::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #ff6347;
+            border-radius: 50%;
+        }
+
+        .minute::before {
+            background-color: #98fb98;
+        }
+
+        .second::before {
+            background-color: #fff;
+        }
+
+        .digit {
+            position: absolute;
+            color: #fff;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="hour" id="hour"></div>
+        <div class="minute" id="minute"></div>
+        <div class="second" id="second"></div>
+
+        <div class="digit" style="top: 10%; left: 50%;">12</div>
+        <div class="digit" style="top: 23%; left: 77%;">1</div>
+        <div class="digit" style="top: 40%; left: 90%;">2</div>
+        <div class="digit" style="top: 60%; left: 90%;">3</div>
+        <div class="digit" style="top: 77%; left: 77%;">4</div>
+        <div class="digit" style="top: 90%; left: 50%;">5</div>
+        <div class="digit" style="top: 77%; left: 23%;">6</div>
+        <div class="digit" style="top: 60%; left: 10%;">7</div>
+        <div class="digit" style="top: 40%; left: 10%;">8</div>
+        <div class="digit" style="top: 23%; left: 23%;">9</div>
+        <div class="digit" style="top: 10%; left: 50%;">10</div>
+        <div class="digit" style="top: 33%; left: 23%;">11</div>
+    </div>
+
+    <script>
+        function setClock() {
+            const hourHand = document.getElementById('hour');
+            const minuteHand = document.getElementById('minute');
+            const secondHand = document.getElementById('second');
+
+            const currentDate = new Date();
+            const secondsRatio = currentDate.getSeconds() / 60;
+            const minutesRatio = (secondsRatio + currentDate.getMinutes()) / 60;
+            const hoursRatio = (minutesRatio + currentDate.getHours()) / 12;
+
+            setRotation(secondHand, secondsRatio);
+            setRotation(minuteHand, minutesRatio);
+            setRotation(hourHand, hoursRatio);
+        }
+
+        function setRotation(element, rotationRatio) {
+            element.style.transform = `rotate(${rotationRatio * 360}deg)`;
+        }
+
+        setInterval(setClock, 1000);
+        setClock();
+    </script>
+</body>
+</html>

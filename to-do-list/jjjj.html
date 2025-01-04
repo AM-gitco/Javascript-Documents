@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #232526, #414345);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+            margin: 0;
+        }
+        #todo-container {
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            width: 400px;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #fff;
+        }
+        #input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 25px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #17a2b8;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
+        button:hover {
+            background-color: #138496;
+        }
+        .delete-all-btn {
+            background-color: #dc3545;
+        }
+        .delete-all-btn:hover {
+            background-color: #c82333;
+        }
+        #task-count {
+            color: #fff;
+            margin-top: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            color: #fff;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        td {
+            word-wrap: break-word;
+        }
+        td.task {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        td.actions {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            white-space: nowrap;
+        }
+        .edit-btn, .remove-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            padding: 5px;
+        }
+        .edit-btn i, .remove-btn i {
+            font-size: 18px;
+        }
+        .edit-btn i {
+            color: #17a2b8;
+        }
+        .edit-btn i:hover {
+            color: #138496;
+        }
+        .remove-btn i {
+            color: #dc3545;
+        }
+        .remove-btn i:hover {
+            color: #c82333;
+        }
+        .hidden {
+            display: none;
+        }
+        #task-list-container {
+            max-height: 300px;
+            overflow-y: auto;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="todo-container">
+        <h1>To-Do List</h1>
+        <div id="input-container">
+            <input type="text" id="task-input" placeholder="Write here...">
+            <div class="button-group">
+                <button onclick="addTask()">Add Task</button>
+                <button class="delete-all-btn" onclick="deleteAllTasks()">Delete All</button>
+            </div>
+            <div id="task-count">Total Tasks: 0</div>
+        </div>
+        <table>
+            <thead id="table-headers" class="hidden">
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+        </table>
+        <div id="task-list-container">
+            <table>
+                <tbody id="task-list"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let editMode = false;
+        let editTr = null;
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            loadTasks();
+        });
+
+        function loadTasks() {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            tasks.forEach(taskText => {
+                createTaskElement(taskText);
+            });
+            toggleTableHeaders();
+            updateTaskCount();
+        }
+
+        function saveTasks() {
+            const taskList = document.getElementById('task-list');
+            const tasks = Array.from(taskList.getElementsByTagName('tr')).map(tr => tr.querySelector('td span').textContent);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        function createTaskElement(taskText) {
+            const taskList = document.getElementById('task-list');
+            const rowCount = taskList.getElementsByTagName('tr').length;
+
+            const tr = document.createElement('tr');
+            const numberTd = document.createElement('td');
+            numberTd.textContent = rowCount + 1;
+            tr.appendChild(numberTd);
+
+            const taskTd = document.createElement('td');
+            taskTd.classList.add('task');
+            const taskSpan = document.createElement('span');
+            taskSpan.textContent = taskText;
+            taskTd.appendChild(taskSpan);
+            tr.appendChild(taskTd);
+
+            const actionsTd = document.createElement('td');
+            actionsTd.classList.add('actions');
+
+            const editBtn = document.createElement('button');
+            editBtn.classList.add('edit-btn');
+            editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+            editBtn.onclick = function() {
+                const taskInput = document.getElementById('task-input');
+                taskInput.value = taskSpan.textContent;
+                taskInput.focus();
+                editMode = true;
+                editTr = tr;
+            };
+
+            const removeBtn = document.createElement('button');
+            removeBtn.classList.add('remove-btn');
+            removeBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+            removeBtn.onclick = function() {
+                taskList.removeChild(tr);
+                saveTasks();
+                if (editTr === tr) {
+                    editMode = false;
+                    editTr = null;
+                    const taskInput = document.getElementById('task-input');
+                    taskInput.value = '';
+                }
+                updateTaskNumbers();
+                toggleTableHeaders();
+                updateTaskCount();
+            };
+
+            actionsTd.appendChild(editBtn);
+            actionsTd.appendChild(removeBtn);
+            tr.appendChild(actionsTd);
+            taskList.appendChild(tr);
+            toggleTableHeaders();
+            updateTaskCount();
+        }
+
+        function addTask() {
+            const taskInput = document.getElementById('task-input');
+            const taskText = taskInput.value.trim();
+
+            if (taskText === '') {
+                alert('Please enter a task');
+                return;
+            }
+
+            const taskList = document.getElementById('task-list');
+            const tasks = taskList.getElementsByTagName('tr');
+            for (let task of tasks) {
+                if (task.querySelector('td span').textContent === taskText && task !== editTr) {
+                    alert('This task already exists');
+                    return;
+                }
+            }
+
+            if (editMode) {
+                editTr.querySelector('td span').textContent = taskText;
+                editMode = false;
+                editTr = null;
+            } else {
+                createTaskElement(taskText);
+            }
+
+            taskInput.value = '';
+            saveTasks();
+            updateTaskNumbers();
+            updateTaskCount();
+        }
+
+        function updateTaskNumbers() {
+            const taskList = document.getElementById('task-list');
+            const tasks = taskList.getElementsByTagName('tr');
+            for (let i = 0; i < tasks.length; i++) {
+                tasks[i].querySelector('td:first-child').textContent = i + 1;
+            }
+        }
+
+        function toggleTableHeaders() {
+            const taskList = document.getElementById('task-list');
+            const tableHeaders = document.getElementById('table-headers');
+            if (taskList.getElementsByTagName('tr').length === 0) {
+                tableHeaders.classList.add('hidden');
+            } else {
+                tableHeaders.classList.remove('hidden');
+            }
+        }
+
+        function deleteAllTasks() {
+            const taskList = document.getElementById('task-list');
+            while (taskList.firstChild) {
+                taskList.removeChild(taskList.firstChild);
+            }
+            saveTasks();
+            toggleTableHeaders();
+            updateTaskCount();
+        }
+
+        function updateTaskCount() {
+            const taskList = document.getElementById('task-list');
+            const taskCount = taskList.getElementsByTagName('tr').length;
+            const taskCountDisplay = document.getElementById('task-count');
+            taskCountDisplay.textContent = `Total Tasks: ${taskCount}`;
+        }
+    </script>
+</body>
+</html>

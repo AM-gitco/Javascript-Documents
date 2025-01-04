@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = {
+            fname: 'Ali',
+            lname: 'Hassan',
+            age: 25,
+            addres: 'Sargoidha',
+
+            //we can alsoo add email like this
+            email: 'hello@gmail.com',
+
+            //we can also add ann array in object
+            fruitN: ["Mango", "Banana", "Apple"],
+
+            //we can alsoo add function in an object
+            salary: function () {
+                return 299999;
+            },
+
+            //we can also add object in object 
+            living: {
+                'city': 'sargodha',
+                'country': 'Pakistan'
+            },
+
+            //use (this) to call  folowing like function
+            fullname: function () {
+                return this.fname + " " + this.lname;
+            }
+        }
+        //objectt can not give full property on write..
+        document.write(a.fname + "<br>" + "<br>");
+        document.write(a.lname + "<br>" + "<br>");
+        document.write(a.age + "<br>" + "<br>");
+        document.write(a.fruitN + "<br>" + "<br>");
+        document.write(a.salary() + "<br>" + "<br>");
+
+        //we can call object in object byy this method
+        document.write(a.living.city + "<br>" + "<br>");
+
+
+        document.write(a.fullname());
+
+    </script>
+</body>
+
+</html>

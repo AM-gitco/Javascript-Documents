@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sign up form</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    
+}
+html,
+body{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+}
+
+.forms{
+    background-color: white;
+    max-width: 399px;
+    padding: 30px;
+    overflow: hidden;
+    border-radius: 16px;
+    /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.titles{
+    display: flex;
+    width: 200%;
+}
+
+.title{
+    width: 50%;
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+}
+
+.radio-controls{
+    display: flex;
+    position: relative;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    margin: 30px 0 10px 0;
+    justify-content: space-between;
+    border: 1px solid rgb(203, 202, 202);
+    border-radius: 16px;
+}
+
+.slide{
+    height: 100%;
+    width: 100%;
+    color: rgb(243, 239, 239);
+    font-size: 19px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.6s ease;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.signup{
+    color:black;
+}
+
+.slides{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 0;
+    z-index: 0;
+    border-radius: 15px;
+    background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-container{
+    width: 100%;
+    overflow: hidden;
+}
+
+.form-main{
+    display: flex;
+    width: 200%;
+}
+ form{
+    width: 50%;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.input{
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.input input{
+    width: 100%;
+    height: 100%;
+    padding-left: 15px;
+    outline: none;
+    border-radius: 16px;
+    border: 1px solid lightgray;
+    border-bottom-width: 2px;
+    font-size: 15px;
+    transition: all;
+}
+
+.input input:focus{
+    border-color: #1a75ff;
+     /* box-shadow: inset 0 0 3px #fb6aae;  */
+}
+
+
+.input input::placeholder{
+    color: #666666;
+    transition: all 0.3s ease;
+}
+
+.input input:focus::placeholder{
+    color: #1a75ff;
+}
+
+.su-link{
+    text-align: center;
+    margin-top: 30px;
+}
+
+a{
+    color: #1a75ff;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+
+form .show-password{
+    font-size: 13px;
+    /* padding-top: -2px; */
+}
+
+
+form .btn {
+    height: 50px;
+    width: 100%;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-layer{
+    height: 100%;
+    width: 300%;
+    position: absolute;
+    left: -100%;
+    background: -webkit-linear-gradient(right, #003366, #004080, #0059b3, #0073e6);
+    border-radius: 16px;
+    transition: all 0.4s ease;
+}
+
+
+form .btn:hover .btn-layer {
+    left: 0;
+}
+
+input[type="submit"] {
+    height: 100%;
+    width: 100%;
+    border: none;
+    z-index: 1;
+    position: relative;
+    background: none;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    color: white;
+    border-radius: 15px;
+    padding-left: 0;
+}
+
+#signup:checked~.slides {
+    left: 50%;
+}
+
+#signup:checked~label.login {
+    color: #000;
+}
+
+#signup:checked~label.signup {
+    color: #fff;
+    cursor: default;
+    user-select: none;
+}
+
+#login:checked~label.login {
+    cursor: default;
+    user-select: none;
+}
+
+#login:checked~label.signup {
+    color: #000;
+}
+  </style>
+</head>
+
+<body>
+  <div class="forms">
+    <div class="titles">
+      <div class="title login" id="login-form">Login Form</div>
+      <div class="title signup" id="signup-form">Signup Form</div>
+    </div>
+    <div class="form-container">
+      <div class="radio-controls">
+        <input type="radio" name="slide" id="login" checked />
+        <input type="radio" name="slide" id="signup" />
+        <label for="login" class="slide login" id="loginBtn">Log In Form</label>
+        <label for="signup" class="slide signup" id="signupBtn">Sign Up Form</label>
+        <div class="slides"></div>
+      </div>
+
+      <div class="form-main">
+        <form action="#" class="login" id="loginForm">
+          <div class="input">
+            <input type="email" id="email" placeholder="Email Address" required />
+          </div>
+
+          <div class="input">
+            <input type="password" id="password" placeholder="Password" required />
+          </div>
+
+          <input type="checkbox" class="checkbox" id="checkbox" />
+          <span class="show-password">Show Password</span>
+
+          <div class="input btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="LogIn" />
+          </div>
+          <div class="su-link">
+            "Not a member?"
+            <a href="#">Sign Up Now</a>
+          </div>
+        </form>
+
+        <form action="#" class="signup" id="signupForm">
+          <div class="input">
+            <input type="email" id="signupEmail" placeholder="Email Address" required />
+          </div>
+
+          <div class="input">
+            <input type="password" id="signup-password" placeholder="Password" required />
+          </div>
+
+          <div class="input">
+            <input type="password" id="signup-Confirmpassword" placeholder="Confirm Password" required />
+          </div>
+
+          <div class="input btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Sign Up" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+const passwordField = document.getElementById("password");
+const checkBox = document.getElementById("checkbox");
+const signupBtn = document.getElementById("signupBtn");
+const loginBtn = document.getElementById("loginBtn");
+const loginForm = document.querySelector("form.login");
+const signupForm = document.querySelector("form.signup");
+const loginText = document.getElementById("login-form");
+const signLink = document.querySelector(".su-link");
+
+// Get the signup form elements
+const signupEmail = document.getElementById("signupEmail");
+const signupPassword = document.getElementById("signup-password");
+const signupConfirmPassword = document.getElementById("signup-Confirmpassword");
+
+// Get the login form elements
+const loginEmail = document.getElementById("email");
+const loginPassword = document.getElementById("password");
+
+checkBox.addEventListener('change', function () {
+    if (checkBox.checked) {
+        passwordField.type = `text`;
+    } else {
+        passwordField.type = `password`;
+    }
+});
+
+loginBtn.onclick = function () {
+    loginForm.style.marginLeft = "0%";
+    loginText.style.marginLeft = "0%";
+};
+
+signupBtn.onclick = function () {
+    loginForm.style.marginLeft = "-50%";
+    loginText.style.marginLeft = "-50%";
+};
+
+signLink.onclick = function () {
+    signupBtn.click();
+    return false;
+};
+// Function to clear signup form fields
+function clearSignupForm() {
+    signupEmail.value = "";
+    signupPassword.value = "";
+    signupConfirmPassword.value = "";
+
+    // Also clear temporarily stored form data from localStorage
+    localStorage.removeItem('tempSignupEmail');
+    localStorage.removeItem('tempSignupPassword');
+    localStorage.removeItem('tempSignupConfirmPassword');
+}
+
+// Save form data to localStorage as the user types (temporary storage)
+signupEmail.addEventListener('input', function() {
+    localStorage.setItem('tempSignupEmail', signupEmail.value);
+});
+
+signupPassword.addEventListener('input', function() {
+    localStorage.setItem('tempSignupPassword', signupPassword.value);
+});
+
+signupConfirmPassword.addEventListener('input', function() {
+    localStorage.setItem('tempSignupConfirmPassword', signupConfirmPassword.value);
+});
+
+// Retrieve form data from localStorage when the page loads
+window.addEventListener('load', function() {
+    const tempEmail = localStorage.getItem('tempSignupEmail');
+    const tempPassword = localStorage.getItem('tempSignupPassword');
+    const tempConfirmPassword = localStorage.getItem('tempSignupConfirmPassword');
+
+    if (tempEmail) signupEmail.value = tempEmail;
+    if (tempPassword) signupPassword.value = tempPassword;
+    if (tempConfirmPassword) signupConfirmPassword.value = tempConfirmPassword;
+});
+
+// Add event listener for signup form submission
+signupForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form submission
+
+    const email = signupEmail.value;
+    const password = signupPassword.value;
+    const confirmPassword = signupConfirmPassword.value;
+
+    // Retrieve saved signup data from localStorage
+    const savedEmail = localStorage.getItem("signupEmail");
+
+    // Check if the email already exists in localStorage
+    if (savedEmail === email) {
+        alert("You have already signed up!");
+        clearSignupForm();  // Clear form when user already exists
+        return;
+    }
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    // Save the signup data to localStorage (permanent storage)
+    localStorage.setItem("signupEmail", email);
+    localStorage.setItem("signupPassword", password);
+
+    // Show success alert
+    alert("You have successfully signed up!");
+
+    // Clear the signup form fields using the function
+    clearSignupForm();
+
+    // Switch back to login form after signup
+    loginBtn.click();
+});
+
+
+// // Add event listener for signup form submission
+// signupForm.addEventListener('submit', function (event) {
+//     event.preventDefault(); // Prevent form submission
+
+//     const email = signupEmail.value;
+//     const password = signupPassword.value;
+//     const confirmPassword = signupConfirmPassword.value;
+
+//     // Retrieve saved signup data from localStorage
+//     const savedEmail = localStorage.getItem("signupEmail");
+//     const savedPassword = localStorage.getItem("signupPassword");
+//     const savedCpassword = localStorage.getItem("signupcpassward");
+
+//     // Check if the email already exists in localStorage
+//     if (savedEmail === email) {
+//         if(savedPassword === password && confirmPassword === savedCpassword) {
+//         alert("You have already signed up!");
+//         clearSignupForm();
+//         return;
+//     }else{
+//         alert("User not found or incorrect Password");
+//         clearSignupForm();
+//         return;
+//         }
+//     }
+
+//     // Check if passwords match
+//     if (password !== confirmPassword) {
+//         alert("Passwords do not match!");
+//         return;
+//     }
+
+//     // Save the signup data to localStorage
+//     localStorage.setItem("signupEmail", email);
+//     localStorage.setItem("signupPassword", password);
+//     localStorage.setItem("signupcpassward" , confirmPassword);
+
+//     // Show success alert
+//     alert("You have successfully signed up!");
+
+//     // Clear the form fields after saving
+//     signupEmail.value = "";
+//     signupPassword.value = "";
+//     signupConfirmPassword.value = "";
+
+//     // Switch back to login form after signup
+//     loginBtn.click();
+// });
+
+// Add event listener for login form submission
+loginForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form submission
+
+    const email = loginEmail.value;
+    const password = loginPassword.value;
+
+    // Retrieve saved signup data from localStorage
+    const savedEmail = localStorage.getItem("signupEmail");
+    const savedPassword = localStorage.getItem("signupPassword");
+
+    // Check if the login email matches the saved email
+    if (email === savedEmail) {
+        // If email matches, check if password also matches
+        if (password === savedPassword) {
+            alert("You have successfully logged in!");
+        } else {
+            alert("Password not match! Please enter correct password.");
+        }
+    } else {
+        alert("User not found. Please sign up first.");
+    }
+
+    // Optionally, you can clear the login form fields
+    loginEmail.value = "";
+    loginPassword.value = "";
+});
+
+// function clearSignupForm() {
+//     signupEmail.value = "";
+//     signupPassword.value = "";
+//     signupConfirmPassword.value = "";
+// }
+
+  </script>
+</body>
+
+</html>

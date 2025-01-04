@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="forms">
+    <div class="titles">
+      <div class="title login" id="login-form"></div>
+      <div class="title signup" id="signup-form"></div>
+    </div>
+    <div class="form-container">
+      <div class="radio-controls">
+        <input type="radio" name="slide" id="login" checked />
+        <input type="radio" name="slide" id="signup" />
+        <label for="login" class="slide login" id="loginBtn"></label>
+        <label for="signup" class="slide signup" id="signupBtn"></label>
+        <div class="slides"></div>
+      </div>
+
+      <div class="form-main">
+        <form action="#" class="login" id="loginForm">
+          <div class="input">
+            <input type="email" id="email" placeholder="Email Address" required />
+          </div>
+
+          <div class="input">
+            <input type="password" id="password" placeholder="Password" required />
+          </div>
+
+          <input type="checkbox" class="checkbox" id="checkbox" />
+          <span class="show-password"  id="show-password"></span>
+
+
+          <div class="input btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="LogIn" />
+          </div>
+          <div class="su-link">
+            <span id="su-link"></span>
+            
+            <a href="#" id="ancor-g"></a>
+          </div>
+        </form>
+
+        <form action="#" class="signup" id="signupForm">
+          <div class="input">
+            <input type="email" id="signupEmail" placeholder="Email Address" required />
+          </div>
+
+          <div class="input">
+            <input type="password" id="signup-password" placeholder="Password" required />
+          </div>
+
+          <div class="input">
+            <input type="password" id="signup-Confirmpassword" placeholder="Confirm Password" required />
+          </div>
+
+          <div class="input btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Sign Up" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="text.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

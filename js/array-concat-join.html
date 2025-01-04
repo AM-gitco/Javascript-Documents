@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = ["Mango","Apple", "Grapees" ,"Stawbery", "Mango"  ];
+        document.write(a + "<br><br>");
+
+        // arrray concat() method 1
+        var b = a.concat("WAtermelon", "Cherry");
+        document.write(b + "<br><br>");
+
+        // arrray concat() method 2
+        var b = ["WAtermelon", "Cherry"]
+        var e = [10 , 20 , 30 , true]
+        var c = a.concat(b , e);
+        document.write(c + "<br><br>");
+
+        // array join() function
+        var f = c.join(" / ")
+        document.write(f + "<br><br>");
+    </script>
+</body>
+</html>

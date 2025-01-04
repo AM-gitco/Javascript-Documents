@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: seagreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div><br><br>
+    <input type="text" id="mi">
+    <script>
+        var left = 0;
+        var up = 0;
+        // document.querySelector("#mi").addEventListener('keydown', function(e ){
+        //     var text = "You pressed : " + e.key;
+        //     console.log(text);
+        // })
+         document.querySelector("body").addEventListener('keydown', function(e ){
+           switch (e.key) {
+            case "ArrowRight":
+            left = left - 5;
+                break;
+            case "ArrowLeft":
+                left = left + 5;
+                break;
+            case "ArrowDown":
+            up = up + 5;
+                break;
+            case "ArrowUp":
+                up = up - 5;
+                break;
+            default:
+                alert('Pressed correct key..');
+                break;
+           }
+           var target = document.querySelector('#box');
+           target.style.marginLeft = left + "px";
+           target.style.marginTop = up + "px";
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup Form</title>
+    <style>
+        /* Reset basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #003366, #0066cc);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .tab {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            background: #f2f2f2;
+            border-radius: 10px;
+        }
+
+        .tab input[type="radio"] {
+            display: none;
+        }
+
+        .tab label {
+            padding: 10px 30px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 10px;
+        }
+
+        .tab input[type="radio"]:checked + label {
+            background: linear-gradient(to right, #003366, #0066cc);
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Form container styling */
+        .form-content {
+            display: none;
+        }
+
+        input[id="login"]:checked ~ .login-form,
+        input[id="signup"]:checked ~ .signup-form {
+            display: block;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        form button {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(to right, #003366, #0066cc);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: linear-gradient(to right, #002244, #0055bb);
+        }
+
+        .form-content .toggle-link {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .form-content .toggle-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .form-content .toggle-link a:hover {
+            text-decoration: underline;
+        }
+
+        .form-container .show-password {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .form-container .show-password input[type="checkbox"] {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <!-- Radio buttons for toggling between forms -->
+        <input type="radio" id="login" name="tab" checked>
+        <input type="radio" id="signup" name="tab">
+
+        <!-- Tab labels -->
+        <div class="tab">
+            <label for="login">Login Form</label>
+            <label for="signup">Signup Form</label>
+        </div>
+
+        <!-- Login Form -->
+        <div class="form-content login-form">
+            <h2>Login Form</h2>
+            <form>
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <div class="show-password">
+                    <input type="checkbox" id="show-password">
+                    <label for="show-password">Show Password</label>
+                </div>
+                <button type="submit">Login</button>
+                <div class="toggle-link">
+                    Not a member? <a href="#">Signup now</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="form-content signup-form">
+            <h2>Signup Form</h2>
+            <form>
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit">Signup</button>
+                <div class="toggle-link">
+                    Already a member? <a href="#">Login now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

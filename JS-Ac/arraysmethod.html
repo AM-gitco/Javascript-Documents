@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p style="font-size: xx-large;" id="main"></p>
+    <p style="font-size: xx-large;" id="fac"></p>
+    <script>
+        // let marks =[96 , 93, 90, 98 , 78 , 77 , 67, 34, 25 , 99, 45,  100 , 56];
+
+        // let toppers = marks.filter((val)=>{
+        //     return val >= 90
+        // });
+        // document.write(toppers);
+
+
+
+
+        let n = prompt("Enter a number :");
+
+        let arr = [];
+
+        for (let i = 1; i <= n; i++) {
+            arr[i - 1] = i;
+            
+        }
+        document.write(arr);
+        //addition 
+        let sum = arr.reduce((res, curr) => {
+            return res + curr;
+        });
+        // document.write(sum)
+        document.getElementById("main").innerHTML ="Sum =  " + sum;
+
+
+
+        //factoriaol
+        let factorial = arr.reduce((res , curr) =>{
+            return res * curr;
+        });
+        document.getElementById("fac").innerHTML ="Factorial =  " + factorial;
+
+    </script>
+</body>
+</html>

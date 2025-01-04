@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function hello(fname ="Ali" , lname ="Hassan"){
+            document.write("Hello " + fname + " " + lname +"<br><br>")
+        }
+        function sum(a,b){
+            document.write( a + b )
+        }
+        function fullname(fname ="Muhammad" , lname ="Hassan"){
+            var a = fname + " " + lname + "<br><br>";
+            return a;
+        }
+        hello();
+        hello("Umar", "Hassan");
+        
+        var fn= fullname();
+        //var fn= fullname("Abdullah", "hassan")
+        document.write(fn);
+
+        sum(30,40);
+
+        function ss (math,eng,sc){
+            var s= math + eng + sc;
+            return s;
+        }
+
+        function percent (tt){
+            var p= tt/300 * 100;
+            document.write(p)
+        }
+        var total= ss(55,66,89);
+        percent(total)
+</script>
+</body>
+</html>

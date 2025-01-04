@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            background-color: lightgoldenrodyellow;
+            width: 400px;
+            height: 200px;
+            padding: 15px;
+            border: 1px solid violet;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="mi"><br><br>
+    <div id="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, culpa hic provident nam, quis tenetur incidunt sequi, quam amet molestiae asperiores atque dolorum! Pariatur debitis quaerat mollitia ratione id, ea ex dolores nisi voluptas eos optio possimus non maxime consequatur esse? Eos, ullam! Nam non illo praesentium magni architecto fugit?</div>
+    <script>
+        
+       var target =  document.querySelector("#mi");
+       var box =  document.querySelector("#box");
+
+       target.addEventListener('copy',function(){
+        target.style.backgroundColor = "lightgreen";
+       });
+
+       target.addEventListener('cut',function(){
+        target.style.backgroundColor = "lightblue";
+       });
+
+       target.addEventListener('paste',function(){
+        target.style.backgroundColor = "lightyellow";
+       });
+
+       box.addEventListener('copy',function(){
+        box.style.backgroundColor = "lightgreen";
+       });
+        </script>
+</body>
+</html>

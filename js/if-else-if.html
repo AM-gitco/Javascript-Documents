@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var per=0; 
+        //var per=prompt("Enter your Percentage (1-100):")
+
+        if(per>=90 && per <=100){
+            document.write("You have Grade A+")
+        }
+        else if(per >= 80 && per < 90){
+            document.write("You have Grade A")
+        }
+        else if(per >= 70 && per < 80){
+            document.write("You have Grade B+")
+        }
+        else if(per >= 60 && per < 70){
+            document.write("You have Grade B")
+        }
+        else if(per >= 50 && per < 60){
+            document.write("You have Grade C+")
+        }
+        else if(per >= 40 && per < 50){
+            document.write("You have Grade C")
+        }
+        else if(per >= 33 && per < 40){
+            document.write("Grade = Pass (D)")
+        }
+        else if(per < 33 && per >=  1){
+            document.write("Grade = Fail (F)")
+        }
+        else{
+            document.write("Please enter valid percent.")
+        }
+
+        //ternary operators
+        let age = 16;
+        let result = age >= 18 ? "adult" : "not adult";
+        document.write(result);//simpler , compact if else operator
+        </script>
+</body>
+</html>

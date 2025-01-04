@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tt" style="border: 3px solid black;"><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore inventore officia temporibus veniam earum omnis, quae officiis ullam unde odit cum dolorum fugit esse et non.</p></div>
+    <script>
+        var newElement  = document.createElement("h2");
+        var text = document.createTextNode("This is some text which is append in h2...");
+
+        newElement.appendChild(text);
+
+       document.getElementById("tt").appendChild(newElement);
+
+        var target = document.getElementById("tt");
+        //target.insertBefore(newElement,target.childNodes[0]);
+
+        target.insertAdjacentElement("beforebegin");
+
+        
+        
+    </script>
+</body>
+</html>
